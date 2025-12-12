@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura Multijogador Assimétrica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎄 Corrida de Natal 🎄</h1>
+            <p>Papai Noel vs Mamãe Noel - Quem chega primeiro no Polo Norte?</p>
+        </header>
+
+        <div class="game-info">
+            <div class="player-info player1-info">
+                <h2>🎅 Papai Noel</h2>
+                <p>Movimento: ← → (Esquerda/Direita)</p>
+                <p>Posição: <span id="player1-pos">0</span></p>
+                <p>Saúde: <span id="player1-health">100</span>❤️</p>
+                <p>Velocidade: Entregando Presentes →</p>
+            </div>
+
+            <div class="game-status">
+                <h2>Status do Jogo</h2>
+                <div id="status" class="status-box">Aguardando início...</div>
+                <div class="settings">
+                    <div class="setting-group">
+                        <label><strong>Dificuldade:</strong></label>
+                        <label><input type="radio" name="difficulty" value="easy"> Fácil</label>
+                        <label><input type="radio" name="difficulty" value="medium" checked> Médio</label>
+                        <label><input type="radio" name="difficulty" value="hard"> Difícil</label>
+                    </div>
+                    <div class="setting-group">
+                        <label><strong>Modo:</strong></label>
+                        <label><input type="radio" name="mode" value="multiplayer" checked> Multijogador</label>
+                        <label><input type="radio" name="mode" value="solo"> Solo (IA)</label>
+                    </div>
+                </div>
+
+                <button id="startBtn" class="btn-primary">Iniciar Jogo</button>
+                <button id="resetBtn" class="btn-secondary">Resetar</button>
+            </div>
+
+            <div class="player-info player2-info">
+                <h2>🤶 Mamãe Noel</h2>
+                <p>Movimento: A D (Esquerda/Direita)</p>
+                <p>Posição: <span id="player2-pos">0</span></p>
+                <p>Saúde: <span id="player2-health">100</span>❤️</p>
+                <p>Velocidade: Ajudando o Papai ←</p>
+            </div>
+        </div>
+
+        <div class="game-canvas">
+            <canvas id="gameCanvas" width="1000" height="400"></canvas>
+            <button id="fullscreenBtn" class="fullscreen-btn" title="Tela Cheia">⛶</button>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 Instruções:</h3>
+            <ul>
+                <li><strong>🎅 Papai Noel:</strong> Move com ← → (Esquerda/Direita) e ↑ ↓ (Cima/Baixo)</li>
+                <li><strong>🤶 Mamãe Noel:</strong> Move com A D (Esquerda/Direita) e W S (Cima/Baixo)</li>
+                <li><strong>Objetivo:</strong> Chegar primeiro ao Polo Norte no lado oposto!</li>
+                <li><strong>Mapa Gelado:</strong> Explore uma grande floresta de neve com câmera dinâmica</li>
+                <li><strong>Obstáculos:</strong> Muitos ❄️ flocos de neve para evitar (perde 3 de saúde)</li>
+                <li><strong>Inimigos:</strong> 🦌 Renas malvadas atiram ❌ em você (perde 5 de saúde)</li>
+                <li><strong>Itens Natalinos:</strong> Colete 🎁 presentes para ganhar velocidade e 🧦 meias para recuperar saúde</li>
+                <li><strong>Vitória:</strong> Primeiro a atingir o Polo Norte vence!</li>
+            </ul>
+        </div>
+
+        <div class="leaderboard">
+            <h3>🏆 Placar Natalino:</h3>
+            <p>🎅 Papai Noel: <span id="score1">0</span> vitórias</p>
+            <p>🤶 Mamãe Noel: <span id="score2">0</span> vitórias</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
